@@ -8,7 +8,7 @@ app = FastAPI(
     title='movieRank'
 )
 
-app.include_router(api_router, tags=["API"])
+app.include_router(api_router, tags=["TODO_API"])
 
 
 origins = [

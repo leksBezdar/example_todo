@@ -47,6 +47,12 @@ class TaskCRUD:
     
     async def update_task(self, task_id: int, task_in: schemas.TaskUpdate) -> Task:
         
+        if not task_id: 
+            return {"Error_message": "task_id is required"}
+        
+        if not task_in:
+            return {"Error_message": "task data is required"}
+        
         task_update = await TaskDAO.update(
             self.db,
             Task.id == task_id,
@@ -59,8 +65,7 @@ class TaskCRUD:
     async def delete_task(self, task_id: int = None) -> str:
         
         if not task_id:
-            return {"Error_message": "task_id is required"}
-        
+            return {"Error_message": "task_id is required"}    
         
         await TaskDAO.delete(self.db, task_id == Task.id)
 

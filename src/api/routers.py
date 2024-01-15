@@ -41,7 +41,7 @@ async def get_all_tasks(
     limit: int = 10,
     offset: int = 0,
     db: AsyncSession = Depends(get_async_session),
-):
+) -> list[schemas.TaskBase]:
 
     db_manager = TaskManager(db)
     task_crud = db_manager.task_crud
