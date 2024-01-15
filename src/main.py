@@ -3,12 +3,14 @@ from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from .api.routers import router as api_router
+from .auth.routers import router as auth_router
 
 app = FastAPI(
     title='movieRank'
 )
 
 app.include_router(api_router, tags=["TODO_API"])
+app.include_router(auth_router, tags=["AUTH"])
 
 
 origins = [
