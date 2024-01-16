@@ -24,7 +24,7 @@ async def create_task(
     return await task_crud.create_task(task=task_data)
 
 
-@router.get("/get_task/", response_model=schemas.TaskBase)
+@router.get("/get_task/", response_model=schemas.Task)
 async def get_task(
     task_id: int,
     db: AsyncSession = Depends(get_async_session),
@@ -41,7 +41,7 @@ async def get_all_tasks(
     limit: int = 10,
     offset: int = 0,
     db: AsyncSession = Depends(get_async_session),
-) -> list[schemas.TaskBase]:
+) -> list[schemas.Task]:
 
     db_manager = TaskManager(db)
     task_crud = db_manager.task_crud
@@ -54,7 +54,7 @@ async def update_task(
     task_id: int, 
     task_data: schemas.TaskUpdate,
     db: AsyncSession = Depends(get_async_session),
-) -> schemas.TaskBase:
+) -> schemas.Task:
 
     db_manager = TaskManager(db)
     task_crud = db_manager.task_crud

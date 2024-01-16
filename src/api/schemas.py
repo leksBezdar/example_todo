@@ -6,8 +6,12 @@ class TaskBase(BaseModel):
     username: str 
     description: str 
     is_finished: bool
+    
 
-
+class Task(TaskBase):
+    id: int
+    
+    
 class TaskCreate(TaskBase):
     pass
 
