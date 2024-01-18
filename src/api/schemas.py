@@ -5,7 +5,7 @@ class TaskBase(BaseModel):
     title: str 
     username: str 
     description: str 
-    is_finished: bool | None = None
+    is_finished: bool = False
     
 
 class Task(TaskBase):

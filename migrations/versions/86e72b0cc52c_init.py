@@ -25,7 +25,7 @@ def upgrade() -> None:
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
-    sa.Column('is_finished', sa.Boolean(), nullable=False),
+    sa.Column('is_finished', sa.Boolean(), nullable=False, server_default="false"),
     sa.PrimaryKeyConstraint('id'),
     )
     # ### end Alembic commands ###
